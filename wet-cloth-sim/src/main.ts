@@ -21,10 +21,11 @@ renderer.setPixelRatio(window.devicePixelRatio);
 document.body.appendChild(renderer.domElement);
 
 // 板ポリ作成
-const geometry = new THREE.PlaneGeometry(2,2,1,1);
+const geometry = new THREE.PlaneGeometry(2,2,20,20);
 const material = new THREE.MeshBasicMaterial({
   color: 0x66aaff,
   side: THREE.DoubleSide,
+  wireframe: true,
 });
 const plane = new THREE.Mesh(geometry, material);
 scene.add(plane);
