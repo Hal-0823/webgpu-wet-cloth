@@ -25,10 +25,23 @@ const geometry = new THREE.PlaneGeometry(2,2,20,20);
 const material = new THREE.MeshBasicMaterial({
   color: 0x66aaff,
   side: THREE.DoubleSide,
-  wireframe: true,
+  wireframe: false,
 });
 const plane = new THREE.Mesh(geometry, material);
 scene.add(plane);
+
+// ワイヤーフレーム表示切替ボタン
+const toggleWireframeButton = document.getElementById("toggleWireframe") as HTMLButtonElement;
+
+// 状態管理
+let isWireframe = false;
+
+toggleWireframeButton.addEventListener("click", () =>{
+  isWireframe = !isWireframe;
+
+  material.wireframe = isWireframe;
+  toggleWireframeButton.textContent = `ワイヤーフレーム: ${isWireframe ? "ON" : "OFF"}`;
+});
 
 // 向きが分かりやすいように少し回転
 plane.rotation.x = -0.3;

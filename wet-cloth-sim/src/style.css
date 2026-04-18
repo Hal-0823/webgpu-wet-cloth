@@ -37,6 +37,16 @@ button {
   cursor: pointer;
 }
 
+#toggleWireframe {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
 canvas {
   display: block;
 }
