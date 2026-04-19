@@ -44,10 +44,6 @@ toggleWireframeButton.addEventListener("click", () =>{
   toggleWireframeButton.textContent = `ワイヤーフレーム: ${isWireframe ? "ON" : "OFF"}`;
 });
 
-// 向きが分かりやすいように少し回転
-plane.rotation.x = -0.3;
-plane.rotation.y = 0.4;
-
 // カメラ操作
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.target.set(0,0,0);
@@ -57,9 +53,6 @@ controls.dampingFactor = 0.05;
 // アニメーション
 function animate() {
   requestAnimationFrame(animate);
-
-  plane.rotation.y += 0.01;
-
   controls.update();
   renderer.render(scene, camera);
 }
