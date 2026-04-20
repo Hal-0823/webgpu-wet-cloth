@@ -1,0 +1,65 @@
+name: Feature / 実装タスク
+description: 新機能や実装タスクを作成する
+title: "[Feature] "
+labels:
+  - status: todo
+  - type: feature
+body:
+  - type: input
+    id: overview
+    attributes:
+      label: 概要
+      description: 何を実装するのか簡潔に書く
+      placeholder: 例）3D空間に板ポリを表示する
+    validations:
+      required: true
+
+  - type: textarea
+    id: purpose
+    attributes:
+      label: 目的
+      description: なぜこのタスクが必要か（研究的意義も含めて）
+      placeholder: 例）布シミュレーションの前段階として表示基盤を整える
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: 作業内容
+      description: 実装ステップをチェックリストで書く
+      value: |
+        - [ ] 
+        - [ ] 
+        - [ ] 
+
+  - type: textarea
+    id: done
+    attributes:
+      label: 完了条件
+      description: どの状態になれば完了とするか
+      placeholder: 例）板ポリが描画され、画面上で確認できる
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 分野（area）
+      options:
+        - rendering
+        - simulation
+        - webgpu
+        - interaction
+        - optics
+        - wetness
+        - threejs
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 優先度
+      options:
+        - high
+        - medium
+        - low
+    validations:
+      required: true

@@ -1,0 +1,49 @@
+name: Research / 調査・検証
+description: 技術調査や検証タスク
+title: "[Research] "
+labels:
+  - status: todo
+  - type: research
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: 調査テーマ
+      placeholder: 例）Three.jsをどこまで使うべきか
+    validations:
+      required: true
+
+  - type: textarea
+    id: background
+    attributes:
+      label: 背景
+      description: なぜ調査が必要か
+
+  - type: textarea
+    id: investigation
+    attributes:
+      label: 調査内容
+      value: |
+        - [ ] 情報収集
+        - [ ] 実装検証
+        - [ ] 比較
+
+  - type: textarea
+    id: output
+    attributes:
+      label: 成果物
+      description: 調査結果として何を残すか
+      placeholder: 例）結論まとめ・サンプルコード
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 分野（area）
+      options:
+        - rendering
+        - simulation
+        - webgpu
+        - interaction
+        - optics
+        - wetness
+        - threejs
