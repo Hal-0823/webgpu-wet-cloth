@@ -1,0 +1,18 @@
+name: Docs / 記録・ドキュメント
+description: 研究記録や週報など
+title: "[Docs] "
+labels:
+  - status: todo
+  - type: docs
+body:
+  - type: input
+    id: title
+    attributes:
+      label: 内容
+      placeholder: 例）週間計画の記録
+
+  - type: textarea
+    id: content
+    attributes:
+      label: 記録内容
+      description: 実験結果・考察・メモなど

@@ -1,0 +1,36 @@
+name: Bug / 不具合修正
+description: バグの報告・修正
+title: "[Bug] "
+labels:
+  - status: todo
+  - type: fix
+body:
+  - type: textarea
+    id: bug
+    attributes:
+      label: 不具合内容
+      placeholder: 何が起きているか
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 再現手順
+      value: |
+        1. 
+        2. 
+        3. 
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期待される挙動
+
+  - type: textarea
+    id: cause
+    attributes:
+      label: 原因（分かれば）
+
+  - type: textarea
+    id: fix
+    attributes:
+      label: 修正方針

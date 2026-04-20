@@ -1,5 +1,6 @@
 import './style.css';
 import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 // シーン作成
 const scene = new THREE.Scene();
@@ -12,7 +13,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   100
 );
-camera.position.set(0,0,3);
+camera.position.set(2,4,7);
 
 // レンダラー作成
 const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -43,16 +44,20 @@ toggleWireframeButton.addEventListener("click", () =>{
   toggleWireframeButton.textContent = `ワイヤーフレーム: ${isWireframe ? "ON" : "OFF"}`;
 });
 
-// 向きが分かりやすいように少し回転
-plane.rotation.x = -0.3;
-plane.rotation.y = 0.4;
+// 補助グリッド表示
+const grid = new THREE.GridHelper(10, 10);
+scene.add(grid);
+
+// カメラ操作
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(0,0,0);
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
 
 // アニメーション
 function animate() {
   requestAnimationFrame(animate);
-
-  plane.rotation.y += 0.01;
-
+  controls.update();
   renderer.render(scene, camera);
 }
 
