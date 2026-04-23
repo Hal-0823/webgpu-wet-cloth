@@ -1,6 +1,7 @@
 import './style.css';
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { ClothSimulation } from "./simulation/cloth/clothSimulation.ts";
 
 // シーン作成
 const scene = new THREE.Scene();
@@ -22,14 +23,25 @@ renderer.setPixelRatio(window.devicePixelRatio);
 document.body.appendChild(renderer.domElement);
 
 // 板ポリ作成
-const geometry = new THREE.PlaneGeometry(2,2,20,20);
+// const geometry = new THREE.PlaneGeometry(2,2,20,20);
+// const material = new THREE.MeshBasicMaterial({
+//   color: 0x66aaff,
+//   side: THREE.DoubleSide,
+//   wireframe: false,
+// });
+// const plane = new THREE.Mesh(geometry, material);
+// scene.add(plane);
+
+// クロスシミュレーション
+const cloth = new ClothSimulation(4,3,20,15);
 const material = new THREE.MeshBasicMaterial({
   color: 0x66aaff,
   side: THREE.DoubleSide,
   wireframe: false,
 });
-const plane = new THREE.Mesh(geometry, material);
-scene.add(plane);
+
+const clothMesh = new THREE.Mesh(cloth.geometry, material);
+scene.add(clothMesh);
 
 // ワイヤーフレーム表示切替ボタン
 const toggleWireframeButton = document.getElementById("toggleWireframe") as HTMLButtonElement;
